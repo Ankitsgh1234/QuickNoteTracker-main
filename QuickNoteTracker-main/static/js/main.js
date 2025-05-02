@@ -185,12 +185,18 @@ document.addEventListener('DOMContentLoaded', function() {
             confidenceBadge.innerHTML = `<span class="${badgeClass}">Confidence: ${data.confidence || 'Unknown'}</span>`;
         }
 
-        // Add Quick Facts section
+        // Remove any existing Quick Facts section
+        const existingFacts = resultContent.querySelector('.quick-facts-section');
+        if (existingFacts) {
+            existingFacts.remove();
+        }
+
+        // Add Quick Facts section for the current material only
         let quickFactsSection = document.createElement('div');
-        quickFactsSection.className = 'card shadow-sm mb-4';
+        quickFactsSection.className = 'card shadow-sm mb-4 quick-facts-section';
         quickFactsSection.innerHTML = `
             <div class="card-header bg-dark">
-                <h5 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Quick Facts</h5>
+                <h5 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Quick Facts - ${data.result}</h5>
             </div>
             <div class="card-body">
                 ${(data.facts || []).map(fact => `
