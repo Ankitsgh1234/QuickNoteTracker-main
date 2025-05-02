@@ -2,7 +2,7 @@
 
 /* Global styling */
 :root {
-    --primary-glow: rgba(0, 123, 255, 0.15);
+    --primary-glow: rgba(40, 167, 69, 0.15);
     --secondary-glow: rgba(108, 117, 125, 0.15);
     --success-glow: rgba(40, 167, 69, 0.15);
     --info-glow: rgba(23, 162, 184, 0.15);
@@ -106,7 +106,9 @@ main {
 }
 
 .btn-primary {
-    box-shadow: 0 2px 10px var(--primary-glow);
+    background-color: var(--bs-success);
+    border-color: var(--bs-success);
+    box-shadow: 0 2px 10px var(--success-glow);
 }
 
 .btn-primary:hover {
@@ -193,7 +195,7 @@ main {
 }
 
 .navbar-brand i {
-    color: var(--bs-primary);
+    color: var(--bs-success);
 }
 
 /* Footer styling */
