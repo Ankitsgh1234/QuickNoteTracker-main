@@ -132,6 +132,17 @@ main {
     color: #6f42c1 !important;
 }
 
+/* Resource link styling */
+.resource-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.resource-link:hover {
+    color: var(--bs-primary);
+}
+
 /* Enhanced history list */
 #historyList .list-group-item {
     background-color: rgba(33, 37, 41, 0.7);

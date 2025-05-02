@@ -130,9 +130,9 @@
                             <h5 class="mb-0">Recycling Guidelines</h5>
                         </div>
                         <ul class="list-unstyled mb-0 ms-4">
-                            <li><i class="fas fa-check text-success me-2"></i>Material sorting guide</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Contamination prevention</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Preparation instructions</li>
+                            <li><a href="#" class="resource-link"><i class="fas fa-check text-success me-2"></i>Material sorting guide</a></li>
+                            <li><a href="#" class="resource-link"><i class="fas fa-check text-success me-2"></i>Contamination prevention</a></li>
+                            <li><a href="#" class="resource-link"><i class="fas fa-check text-success me-2"></i>Preparation instructions</a></li>
                         </ul>
                     </div>
                     
@@ -245,9 +245,36 @@
             </div>
         </div>
     </div>
+<!-- Coming Soon Modal -->
+    <div class="modal fade" id="comingSoonModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title">Coming Soon!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <i class="fas fa-clock fa-3x mb-3 text-warning"></i>
+                    <h4>Stay Tuned!</h4>
+                    <p class="mb-0">We're working hard to bring you detailed educational resources. Check back soon!</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const resourceLinks = document.querySelectorAll('.resource-link');
+    resourceLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            new bootstrap.Modal(document.getElementById('comingSoonModal')).show();
+        });
+    });
+});
+</script>
 {% endblock %}
