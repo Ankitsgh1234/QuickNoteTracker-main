@@ -354,24 +354,41 @@ async function loadClassificationStats() {
     });
 }
 
-if (document.getElementById('classificationChart')) {
-    loadClassificationStats();
-}
-
-// Function to find recycling centers
 function findRecyclingCenters() {
-    const location = document.getElementById('locationInput').value;
+    const location = document.getElementById('locationInput').value.toLowerCase();
     const locationsDiv = document.getElementById('recyclingLocations');
-    
-    // Example recycling centers (in production, this would connect to a real API)
-    const demoLocations = [
+
+    // Enhanced demo locations database with different centers for different areas
+    const locationDatabase = {
+        'new york': [
+            { name: "NYC Recycling Center", distance: "1.5 miles", types: ["All Materials"] },
+            { name: "Manhattan Green Solutions", distance: "2.8 miles", types: ["Plastic", "Paper"] },
+            { name: "Brooklyn E-Cycle", distance: "3.2 miles", types: ["E-Waste"] }
+        ],
+        'los angeles': [
+            { name: "LA EcoCenter", distance: "2.1 miles", types: ["All Materials"] },
+            { name: "Valley Recycling Hub", distance: "3.5 miles", types: ["Plastic", "Metal"] },
+            { name: "SoCal E-Waste Depot", distance: "4.0 miles", types: ["E-Waste"] }
+        ],
+        'chicago': [
+            { name: "Windy City Recycling", distance: "1.8 miles", types: ["All Materials"] },
+            { name: "Loop Eco Solutions", distance: "2.9 miles", types: ["Paper", "Plastic"] },
+            { name: "Chicago Electronics Recycling", distance: "3.7 miles", types: ["E-Waste"] }
+        ]
+    };
+
+    // Default locations if no match is found
+    const defaultLocations = [
         { name: "City Recycling Center", distance: "2.3 miles", types: ["All Materials"] },
         { name: "Green Earth Recycling", distance: "3.1 miles", types: ["Plastic", "Paper"] },
         { name: "E-Waste Solutions", distance: "4.5 miles", types: ["E-Waste"] }
     ];
 
+    // Get locations based on input or use default
+    const matchedLocations = locationDatabase[location] || defaultLocations;
+
     let html = '<div class="list-group">';
-    demoLocations.forEach(loc => {
+    matchedLocations.forEach(loc => {
         html += `
             <div class="list-group-item">
                 <div class="d-flex justify-content-between align-items-center">
@@ -382,6 +399,10 @@ function findRecyclingCenters() {
             </div>`;
     });
     html += '</div>';
-    
+
     locationsDiv.innerHTML = html;
+}
+
+if (document.getElementById('classificationChart')) {
+    loadClassificationStats();
 }
