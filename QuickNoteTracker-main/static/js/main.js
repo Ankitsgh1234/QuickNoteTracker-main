@@ -447,10 +447,7 @@ function findRecyclingCenters() {
     matchedLocations.forEach(loc => {
         html += `
             <div class="list-group-item">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h6 class="mb-1">${loc.name}</h6>
-                    <span class="badge bg-primary">${loc.distance}</span>
-                </div>
+                <h6 class="mb-1">${loc.name}</h6>
                 <p class="mb-1 small">Accepts: ${loc.types.join(", ")}</p>
             </div>`;
     });
