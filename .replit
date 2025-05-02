@@ -1,0 +1,21 @@
+modules = ["python-3.12", "web", "nodejs-20", "nix"]
+run = "Configuration"
+
+[nix]
+channel = "stable-24_05"
+packages = ["libGL", "libGLU"]
+
+[deployment]
+run = ["sh", "-c", "Configuration"]
+
+[workflows]
+runButton = "Run Flask App"
+
+[[workflows.workflow]]
+name = "Run Flask App"
+author = 33823116
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python QuickNoteTracker-main/main.py"
