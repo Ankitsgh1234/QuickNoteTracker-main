@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Update icon based on waste type
         const iconMap = {
-            'Plastic': '<i class="fas fa-wine-bottle text-success"></i>',
+            'Plastic': '<i class="fas fa-wine-bottle text-purple"></i>',
             'Organic': '<i class="fas fa-apple-alt text-success"></i>',
             'Metal': '<i class="fas fa-box text-secondary"></i>',
             'Paper': '<i class="fas fa-newspaper text-warning"></i>',
