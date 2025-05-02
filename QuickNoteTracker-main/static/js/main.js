@@ -358,30 +358,80 @@ function findRecyclingCenters() {
     const location = document.getElementById('locationInput').value.toLowerCase();
     const locationsDiv = document.getElementById('recyclingLocations');
 
-    // Enhanced demo locations database with different centers for different areas
+    // Enhanced locations database for Indian state capitals and union territories
     const locationDatabase = {
-        'new york': [
-            { name: "NYC Recycling Center", distance: "1.5 miles", types: ["All Materials"] },
-            { name: "Manhattan Green Solutions", distance: "2.8 miles", types: ["Plastic", "Paper"] },
-            { name: "Brooklyn E-Cycle", distance: "3.2 miles", types: ["E-Waste"] }
+        'delhi': [
+            { name: "Delhi Municipal Recycling Center", distance: "2.1 km", types: ["All Materials"] },
+            { name: "Okhla Waste Management", distance: "3.5 km", types: ["Plastic", "Paper"] },
+            { name: "Mayur Vihar E-Waste Hub", distance: "4.2 km", types: ["E-Waste"] }
         ],
-        'los angeles': [
-            { name: "LA EcoCenter", distance: "2.1 miles", types: ["All Materials"] },
-            { name: "Valley Recycling Hub", distance: "3.5 miles", types: ["Plastic", "Metal"] },
-            { name: "SoCal E-Waste Depot", distance: "4.0 miles", types: ["E-Waste"] }
+        'mumbai': [
+            { name: "Mumbai Waste Solutions", distance: "2.3 km", types: ["All Materials"] },
+            { name: "Dharavi Recycling Center", distance: "3.1 km", types: ["Plastic", "Metal"] },
+            { name: "Andheri E-Waste Collection", distance: "4.0 km", types: ["E-Waste"] }
         ],
-        'chicago': [
-            { name: "Windy City Recycling", distance: "1.8 miles", types: ["All Materials"] },
-            { name: "Loop Eco Solutions", distance: "2.9 miles", types: ["Paper", "Plastic"] },
-            { name: "Chicago Electronics Recycling", distance: "3.7 miles", types: ["E-Waste"] }
+        'chennai': [
+            { name: "Chennai Corporation Recycling", distance: "2.0 km", types: ["All Materials"] },
+            { name: "Anna Nagar Waste Center", distance: "3.2 km", types: ["Plastic", "Paper"] },
+            { name: "Guindy E-Waste Facility", distance: "3.8 km", types: ["E-Waste"] }
+        ],
+        'kolkata': [
+            { name: "Kolkata Municipal Center", distance: "2.2 km", types: ["All Materials"] },
+            { name: "Salt Lake Recycling Hub", distance: "3.4 km", types: ["Plastic", "Metal"] },
+            { name: "Sector V E-Waste Center", distance: "4.1 km", types: ["E-Waste"] }
+        ],
+        'bengaluru': [
+            { name: "BBMP Recycling Center", distance: "2.4 km", types: ["All Materials"] },
+            { name: "Whitefield Waste Management", distance: "3.6 km", types: ["Plastic", "Paper"] },
+            { name: "Electronic City E-Waste", distance: "4.3 km", types: ["E-Waste"] }
+        ],
+        'hyderabad': [
+            { name: "GHMC Recycling Facility", distance: "2.1 km", types: ["All Materials"] },
+            { name: "Hitec City Waste Center", distance: "3.3 km", types: ["Plastic", "Metal"] },
+            { name: "Madhapur E-Waste Hub", distance: "3.9 km", types: ["E-Waste"] }
+        ],
+        'lucknow': [
+            { name: "Lucknow Municipal Center", distance: "2.3 km", types: ["All Materials"] },
+            { name: "Gomti Nagar Recycling", distance: "3.5 km", types: ["Plastic", "Paper"] },
+            { name: "Aliganj E-Waste Collection", distance: "4.2 km", types: ["E-Waste"] }
+        ],
+        'bhopal': [
+            { name: "Bhopal Waste Management", distance: "2.0 km", types: ["All Materials"] },
+            { name: "MP Nagar Recycling Center", distance: "3.2 km", types: ["Plastic", "Metal"] },
+            { name: "Habibganj E-Waste", distance: "3.8 km", types: ["E-Waste"] }
+        ],
+        'jaipur': [
+            { name: "Jaipur Municipal Recycling", distance: "2.2 km", types: ["All Materials"] },
+            { name: "Malviya Nagar Waste Center", distance: "3.4 km", types: ["Plastic", "Paper"] },
+            { name: "Sitapura E-Waste Hub", distance: "4.0 km", types: ["E-Waste"] }
+        ],
+        'chandigarh': [
+            { name: "Chandigarh Municipal Center", distance: "2.1 km", types: ["All Materials"] },
+            { name: "Sector 38 Recycling Hub", distance: "3.3 km", types: ["Plastic", "Metal"] },
+            { name: "Industrial Area E-Waste", distance: "3.9 km", types: ["E-Waste"] }
+        ],
+        'gandhinagar': [
+            { name: "Gandhinagar Waste Center", distance: "2.3 km", types: ["All Materials"] },
+            { name: "Sector 21 Recycling", distance: "3.5 km", types: ["Plastic", "Paper"] },
+            { name: "GIFT City E-Waste", distance: "4.1 km", types: ["E-Waste"] }
+        ],
+        'panaji': [
+            { name: "Panaji Municipal Recycling", distance: "2.0 km", types: ["All Materials"] },
+            { name: "Miramar Waste Management", distance: "3.2 km", types: ["Plastic", "Metal"] },
+            { name: "Bambolim E-Waste", distance: "3.8 km", types: ["E-Waste"] }
+        ],
+        'shimla': [
+            { name: "Shimla Waste Center", distance: "2.2 km", types: ["All Materials"] },
+            { name: "Mall Road Recycling", distance: "3.4 km", types: ["Plastic", "Paper"] },
+            { name: "Lower Bazaar E-Waste", distance: "4.0 km", types: ["E-Waste"] }
         ]
     };
 
     // Default locations if no match is found
     const defaultLocations = [
-        { name: "City Recycling Center", distance: "2.3 miles", types: ["All Materials"] },
-        { name: "Green Earth Recycling", distance: "3.1 miles", types: ["Plastic", "Paper"] },
-        { name: "E-Waste Solutions", distance: "4.5 miles", types: ["E-Waste"] }
+        { name: "Municipal Recycling Center", distance: "2.3 km", types: ["All Materials"] },
+        { name: "Local Waste Management", distance: "3.1 km", types: ["Plastic", "Paper"] },
+        { name: "District E-Waste Center", distance: "4.5 km", types: ["E-Waste"] }
     ];
 
     // Get locations based on input or use default
