@@ -15,6 +15,8 @@ Every day, tons of waste end up in landfills simply because people are unsure ho
 🗓️ Collection Schedule – Stay updated with pickup dates, reminders, and local recycling zones.
 
 🎯 Eco-Facts – Learn how recycling saves energy, reduces pollution, and conserves natural resources.
+<img width="1800" height="800" alt="image" src="https://github.com/user-attachments/assets/9f90200e-142d-493b-baec-ab9b3b3c868e" />
+
 
 EcoSnap is not just a tool—it’s an educational platform 🌐 that empowers individuals, schools, and communities to adopt sustainable practices. Whether you’re a student curious about recycling, a household aiming to reduce waste, or a city initiative working toward zero-waste goals, EcoSnap helps bridge the gap between awareness and action. 🌎💪
 
