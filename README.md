@@ -21,6 +21,6 @@ Every day, tons of waste end up in landfills simply because people are unsure ho
 EcoSnap is not just a tool—it’s an educational platform 🌐 that empowers individuals, schools, and communities to adopt sustainable practices. Whether you’re a student curious about recycling, a household aiming to reduce waste, or a city initiative working toward zero-waste goals, EcoSnap helps bridge the gap between awareness and action. 🌎💪
 
 Together, let’s turn waste into opportunity. 🚀
-EcoSnap – Snap. Classify. Recycle.
+EcoSnap – Snap. Classify. Recycle
 
  <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/ddc073a0-5f90-4d84-823e-4dd142f8e353" />
